@@ -1,0 +1,7 @@
+F:\C#\phanso\phanso1\bin\Debug\phanso1.exe.config
+F:\C#\phanso\phanso1\bin\Debug\phanso1.exe
+F:\C#\phanso\phanso1\bin\Debug\phanso1.pdb
+F:\C#\phanso\phanso1\obj\Debug\phanso1.csprojAssemblyReference.cache
+F:\C#\phanso\phanso1\obj\Debug\phanso1.csproj.CoreCompileInputs.cache
+F:\C#\phanso\phanso1\obj\Debug\phanso1.exe
+F:\C#\phanso\phanso1\obj\Debug\phanso1.pdb
