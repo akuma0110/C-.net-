@@ -9,9 +9,10 @@ namespace DangMNN_Lab1
 {
     class Book
     {
-        public void testsavefile()
-        {
-           
-        }
+        public bool addBook(){
+            bool check = false;
+
+            return check;
+            }
     }
 }
