@@ -9,24 +9,53 @@ namespace DangMNN_Lab1
 {
     class Book
     {
-        private List<BookDTO> list = new List<BookDTO>();
-        private List<String> list1 = new List<string>();
-        public void addBook(BookDTO dto)
+        private List<BookDTO> listbook = new List<BookDTO>();
+        public bool addBook(BookDTO dto)
         {
-            //add theo kiểu truyền thống
-            
-            list.Add(new BookDTO() { Id = dto.Id,  Name = dto.Name, Publisher = dto.Publisher, Price = dto.Price});
-            
-            //add theo kiểu hashmap:  status:  quá nhiều công đoạn nên add theo kiểu truyền thống
+            bool check = false;
+            foreach(BookDTO listdto in listbook)
+            {
+                if (listdto.Id.Equals(dto.Id))
+                {
+                    Console.WriteLine("ID is exíted");
+                    return check;
+                }
+            }
+            listbook.Add(new BookDTO() { Id = dto.Id, Name = dto.Name, Publisher = dto.Publisher, Price = dto.Price});
+            check = true;
+            return check;
         }
-        public void updateBook(BookDTO dto)
+        public bool updateBook(BookDTO dto)
+        {
+            bool check = false;
+            foreach(BookDTO b in listbook)
+            {
+                if (b.Id.Equals(dto.Id))
+                {
+                    b.Name = dto.Name;
+                    b.Price = dto.Price;
+                    b.Publisher = dto.Publisher;
+                    check = true;
+                    return check;
+                }
+            }
+            return check;
+        }
+        public bool deleteBook(string id)
+        {
+            bool check = false;
+            foreach (BookDTO lb in listbook)
+            {
+                if (lb.Id.Equals(id))
+                {
+                    listbook.Remove(lb.)
+                }
+            }
+            return check;
+        }
+        public void listall()
         {
 
-        }
-        public void deleteBook(BookDTO dto)
-        {
-            //xóa theo ID --> chuyển qua dùng hashmap
-            //xóa theo stt
         }
     }
 }

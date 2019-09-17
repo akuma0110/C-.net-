@@ -16,8 +16,12 @@ namespace DangMNN_Lab1
 
             foreach (BookDTO dto in test)
             {
-                Console.WriteLine(dto.Id);
+                if (dto.Id.Equals("2"))
+                {
+                    test.Remove(new BookDTO() { Id = "2", })
+                }
             }
+            Console.WriteLine("thanh cong");
             Console.ReadLine();
         }
     }
