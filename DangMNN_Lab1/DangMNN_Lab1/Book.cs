@@ -30,7 +30,7 @@ namespace DangMNN_Lab1
             bool check = false;
             foreach(BookDTO b in listbook)
             {
-                if (b.Id.Equals(dto.Id))
+                if (b.Id == dto.Id)
                 {
                     b.Name = dto.Name;
                     b.Price = dto.Price;
@@ -39,23 +39,43 @@ namespace DangMNN_Lab1
                     return check;
                 }
             }
+           
             return check;
         }
-        public bool deleteBook(string id)
+        public bool deleteBook(BookDTO dto)
         {
             bool check = false;
-            foreach (BookDTO lb in listbook)
+            for(int i = 0; i<listbook.Count;i++)
             {
-                if (lb.Id.Equals(id))
+                if (dto.Id.Equals(listbook[i].Id))
                 {
-                    listbook.Remove(lb.)
+                    listbook.RemoveAt(i);
+                    return check = true;
                 }
             }
             return check;
         }
         public void listall()
         {
+            foreach(BookDTO dto in listbook)
+            {
+                Console.WriteLine(dto.Id + " " + dto.Name + " " + dto.Publisher + " " + dto.Price);
+            }
+        }
 
+        public void findbyrankprice(double max, double min)
+        {
+            if(min > max)
+            {
+                double temp = min;
+            }
+            foreach(BookDTO dto in listbook)
+            {
+                if(dto.Price > min || dto.Price < max)
+                {
+                    Console.WriteLine(dto.Id + " " + dto.Name + " " + dto.Publisher + " " + dto.Price);
+                }
+            }
         }
     }
 }
