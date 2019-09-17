@@ -14,11 +14,10 @@ namespace DangMNN_Lab1
         {
         }
 
-        public BookDTO(string id, string name, string , string publisher, string price)
+        public BookDTO(string id, string name , string publisher, string price)
         {
             this.id = id;
             this.name = name;
-            this. = ;
             this.publisher = publisher;
             this.price = price;
         }
@@ -27,5 +26,7 @@ namespace DangMNN_Lab1
         public string Name { get => name; set => name = value; }
         public string Publisher { get => publisher; set => publisher = value; }
         public string Price { get => price; set => price = value; }
+        
+        
     }
 }
