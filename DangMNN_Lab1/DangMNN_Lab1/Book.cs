@@ -59,7 +59,7 @@ namespace DangMNN_Lab1
         {
             foreach(BookDTO dto in listbook)
             {
-                Console.WriteLine(dto.Id + " " + dto.Name + " " + dto.Publisher + " " + dto.Price);
+                Console.WriteLine("{0}    {1}    {2}    {3}", dto.Id, dto.Name, dto.Publisher, dto.Price);
             }
         }
 
