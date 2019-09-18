@@ -179,6 +179,7 @@ namespace DangMNN_Lab1
                     case 4:
                         Console.Clear();
                         b.listall();
+                        Console.ReadLine();
                         break;
                     case 5:
                         Console.Clear();
@@ -201,6 +202,7 @@ namespace DangMNN_Lab1
                         }
 
                         b.findbyrankprice(double.Parse(max), double.Parse(min));
+                        Console.ReadLine();
                         break;
                     case 6:
                         Console.Clear();
