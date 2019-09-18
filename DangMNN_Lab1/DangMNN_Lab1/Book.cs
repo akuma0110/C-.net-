@@ -17,7 +17,7 @@ namespace DangMNN_Lab1
             {
                 if (listdto.Id.Equals(dto.Id))
                 {
-                    Console.WriteLine("ID is exíted");
+                    Console.WriteLine("ID is existed");
                     return check;
                 }
             }
@@ -68,10 +68,12 @@ namespace DangMNN_Lab1
             if(min > max)
             {
                 double temp = min;
+                min = max;
+                max = temp;
             }
             foreach(BookDTO dto in listbook)
             {
-                if(dto.Price > min || dto.Price < max)
+                if(dto.Price > min && dto.Price < max)
                 {
                     Console.WriteLine(dto.Id + " " + dto.Name + " " + dto.Publisher + " " + dto.Price);
                 }
