@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace testwinform
@@ -17,7 +10,15 @@ namespace testwinform
             InitializeComponent();
         }
 
+        private void TextBox1_MouseMove(object sender, MouseEventArgs e)
+        {
+            txtname.Text = "FUCK U";
+        }
 
+        private void Txtname_MouseLeave(object sender, EventArgs e)
+        {
+            txtname.Text = "";
+        }
 
         
     }
