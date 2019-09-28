@@ -37,9 +37,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtYoE = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtPhone = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtEmail = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.dtpDate = new System.Windows.Forms.DateTimePicker();
@@ -56,6 +54,8 @@
             this.colEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.txtPhone = new System.Windows.Forms.MaskedTextBox();
+            this.txtEmail = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.tblDate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
@@ -126,13 +126,6 @@
             this.label4.TabIndex = 6;
             this.label4.Text = "Years of Experience: ";
             // 
-            // txtPhone
-            // 
-            this.txtPhone.Location = new System.Drawing.Point(126, 208);
-            this.txtPhone.Name = "txtPhone";
-            this.txtPhone.Size = new System.Drawing.Size(177, 20);
-            this.txtPhone.TabIndex = 9;
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -141,13 +134,6 @@
             this.label5.Size = new System.Drawing.Size(81, 13);
             this.label5.TabIndex = 8;
             this.label5.Text = "Phone Number:";
-            // 
-            // txtEmail
-            // 
-            this.txtEmail.Location = new System.Drawing.Point(103, 244);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(200, 20);
-            this.txtEmail.TabIndex = 11;
             // 
             // label6
             // 
@@ -175,6 +161,8 @@
             this.dtpDate.Name = "dtpDate";
             this.dtpDate.Size = new System.Drawing.Size(174, 20);
             this.dtpDate.TabIndex = 13;
+            this.dtpDate.UseWaitCursor = true;
+            this.dtpDate.Value = new System.DateTime(2019, 9, 28, 0, 0, 0, 0);
             // 
             // btnAdd
             // 
@@ -184,6 +172,7 @@
             this.btnAdd.TabIndex = 14;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
             // 
             // btnUpdate
             // 
@@ -193,6 +182,7 @@
             this.btnUpdate.TabIndex = 15;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.BtnUpdate_Click);
             // 
             // btnDelete
             // 
@@ -202,6 +192,7 @@
             this.btnDelete.TabIndex = 16;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
             // 
             // btnSave
             // 
@@ -211,6 +202,7 @@
             this.btnSave.TabIndex = 17;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.BtnSave_Click);
             // 
             // tblDate
             // 
@@ -274,11 +266,28 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // txtPhone
+            // 
+            this.txtPhone.Location = new System.Drawing.Point(153, 211);
+            this.txtPhone.Mask = "999-999999";
+            this.txtPhone.Name = "txtPhone";
+            this.txtPhone.Size = new System.Drawing.Size(150, 20);
+            this.txtPhone.TabIndex = 19;
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.Location = new System.Drawing.Point(103, 244);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(200, 20);
+            this.txtEmail.TabIndex = 20;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1190, 424);
+            this.Controls.Add(this.txtEmail);
+            this.Controls.Add(this.txtPhone);
             this.Controls.Add(this.tblDate);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnDelete);
@@ -286,9 +295,7 @@
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.dtpDate);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.txtPhone);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtYoE);
             this.Controls.Add(this.label4);
@@ -317,9 +324,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtYoE;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtPhone;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DateTimePicker dtpDate;
@@ -336,6 +341,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colEmail;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDate;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.MaskedTextBox txtPhone;
+        private System.Windows.Forms.TextBox txtEmail;
     }
 }
 

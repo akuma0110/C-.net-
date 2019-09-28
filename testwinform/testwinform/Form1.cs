@@ -7,12 +7,24 @@ namespace testwinform
 {
     public partial class Form1 : Form
     {
+        EmployeeDBEntities employeeDBE = new EmployeeDBEntities();
+
         public Form1()
         {
             InitializeComponent();
-            LoadEmployeeInfo();
+            loadData();
         }
+        
+        void loadData()
+        {
+            tbldata.Rows.Clear();
+            foreach (Employee x in employeeDBE.Employees)
+            {
+                tbldata.Rows.Add(x.ID, x.FullName, x.DateOfBirth, x.Gender, x.National, x.Phone, x.Address, x.Qualification, x.Salary);
+                
 
+            }
+        }
         bool validateInput()
         {
             string name = txtFullName.Text;
@@ -86,6 +98,27 @@ namespace testwinform
             dr.Close();
             con.Close();
         }
+        void addnew()
+        {
+            Employee ex = new Employee();
+
+
+            if (rdMale.Checked)
+                 ex.Gender= "M";
+            else ex.Gender = "F";
+
+            ex.FullName = txtFullName.Text;
+            ex.DateOfBirth = txtDOB.Value;
+            ex.Address = txtAddress.Text;
+            ex.National = txtNational.Text;
+            ex.Phone = txtPhone.Text;
+            ex.Qualification = txtQuantification.Text;
+            ex.Salary = int.Parse(txtSalary.Text);
+            employeeDBE.Employees.Add(ex);
+            employeeDBE.SaveChanges();
+            loadData();
+        }
+        /*
         void addNewEmployee()
         {
             string gender = "";
@@ -154,13 +187,14 @@ namespace testwinform
                 param.Value = DBNull.Value;
             else
                 param.Value = txtSalary.Text;
-            cmd.Parameters.Add(param);*/
+            cmd.Parameters.Add(param);
 
             // Execute using our connection
             cmd.Connection = con;
             cmd.ExecuteNonQuery();
             con.Close();
         }
+    */
         /*
         private void addNewEmployee()
         {
@@ -201,6 +235,35 @@ namespace testwinform
             }
 
         }
+        void delete()
+        {
+            if (tbldata.SelectedRows.Count > 0)
+            {
+                try
+                {
+                
+                    
+                    Employee e = new Employee();
+                    DataGridViewRow r = tbldata.SelectedRows[0];
+                    int id = int.Parse(r.Cells["txtId"].Value.ToString());
+
+                    employeeDBE.Employees.Remove(employeeDBE.Employees.Find(id));
+                    employeeDBE.SaveChanges();
+                    loadData();
+                    MessageBox.Show("Deleting completed!");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
+        private void search()
+        {
+            //EmployeeDBEntities employeeDBE = new EmployeeDBEntities();
+            // var em = entity.Employees;
+            var tmp = from g in employeeDBE.Employees where g.FullName
+        }
         private void deleteEmployee()
         {
 
@@ -227,7 +290,8 @@ namespace testwinform
 
             try
             {
-                addNewEmployee();
+                //addNewEmployee();
+                addnew();
                 MessageBox.Show("Adding successful!");
             }
             catch (Exception ex)
@@ -249,7 +313,7 @@ namespace testwinform
                                "Confirm", MessageBoxButtons.YesNo,
                                MessageBoxIcon.Question);
             if (rs == DialogResult.Yes)
-                deleteEmployee();
+                delete();
         }
     }
 }

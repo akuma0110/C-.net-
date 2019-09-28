@@ -52,7 +52,10 @@
             this.txtReset = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tbldata = new System.Windows.Forms.DataGridView();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.btnUpdate = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.txtId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Fullname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dob = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gender = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -61,9 +64,8 @@
             this.address = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.qualfication = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.salary = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.btnUpdate = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.txtSearchName = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbldata)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
@@ -277,7 +279,7 @@
             // 
             this.tbldata.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.tbldata.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ID,
+            this.txtId,
             this.Fullname,
             this.dob,
             this.gender,
@@ -292,52 +294,6 @@
             this.tbldata.ReadOnly = true;
             this.tbldata.Size = new System.Drawing.Size(910, 270);
             this.tbldata.TabIndex = 22;
-            // 
-            // ID
-            // 
-            this.ID.HeaderText = "ID";
-            this.ID.MaxInputLength = 3000;
-            this.ID.Name = "ID";
-            // 
-            // Fullname
-            // 
-            this.Fullname.HeaderText = "Fullname";
-            this.Fullname.Name = "Fullname";
-            // 
-            // dob
-            // 
-            this.dob.HeaderText = "Date of Birth";
-            this.dob.Name = "dob";
-            // 
-            // gender
-            // 
-            this.gender.HeaderText = "Gender";
-            this.gender.Name = "gender";
-            // 
-            // national
-            // 
-            this.national.HeaderText = "National";
-            this.national.Name = "national";
-            // 
-            // phone
-            // 
-            this.phone.HeaderText = "Phone";
-            this.phone.Name = "phone";
-            // 
-            // address
-            // 
-            this.address.HeaderText = "Address";
-            this.address.Name = "address";
-            // 
-            // qualfication
-            // 
-            this.qualfication.HeaderText = "Qualfication";
-            this.qualfication.Name = "qualfication";
-            // 
-            // salary
-            // 
-            this.salary.HeaderText = "Salary";
-            this.salary.Name = "salary";
             // 
             // errorProvider1
             // 
@@ -363,9 +319,82 @@
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
             // 
+            // txtId
+            // 
+            this.txtId.HeaderText = "ID";
+            this.txtId.MaxInputLength = 3000;
+            this.txtId.Name = "txtId";
+            this.txtId.ReadOnly = true;
+            // 
+            // Fullname
+            // 
+            this.Fullname.HeaderText = "Fullname";
+            this.Fullname.Name = "Fullname";
+            this.Fullname.ReadOnly = true;
+            // 
+            // dob
+            // 
+            this.dob.HeaderText = "Date of Birth";
+            this.dob.Name = "dob";
+            this.dob.ReadOnly = true;
+            // 
+            // gender
+            // 
+            this.gender.HeaderText = "Gender";
+            this.gender.Name = "gender";
+            this.gender.ReadOnly = true;
+            // 
+            // national
+            // 
+            this.national.HeaderText = "National";
+            this.national.Name = "national";
+            this.national.ReadOnly = true;
+            // 
+            // phone
+            // 
+            this.phone.HeaderText = "Phone";
+            this.phone.Name = "phone";
+            this.phone.ReadOnly = true;
+            // 
+            // address
+            // 
+            this.address.HeaderText = "Address";
+            this.address.Name = "address";
+            this.address.ReadOnly = true;
+            // 
+            // qualfication
+            // 
+            this.qualfication.HeaderText = "Qualfication";
+            this.qualfication.Name = "qualfication";
+            this.qualfication.ReadOnly = true;
+            // 
+            // salary
+            // 
+            this.salary.HeaderText = "Salary";
+            this.salary.Name = "salary";
+            this.salary.ReadOnly = true;
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Location = new System.Drawing.Point(969, 127);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnSearch.TabIndex = 25;
+            this.btnSearch.Text = "button1";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            // 
+            // txtSearchName
+            // 
+            this.txtSearchName.Location = new System.Drawing.Point(742, 127);
+            this.txtSearchName.Name = "txtSearchName";
+            this.txtSearchName.Size = new System.Drawing.Size(209, 20);
+            this.txtSearchName.TabIndex = 26;
+            // 
             // Form1
             // 
             this.ClientSize = new System.Drawing.Size(1219, 594);
+            this.Controls.Add(this.txtSearchName);
+            this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.tbldata);
@@ -427,7 +456,10 @@
         private System.Windows.Forms.Button txtReset;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView tbldata;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.DataGridViewTextBoxColumn txtId;
         private System.Windows.Forms.DataGridViewTextBoxColumn Fullname;
         private System.Windows.Forms.DataGridViewTextBoxColumn dob;
         private System.Windows.Forms.DataGridViewTextBoxColumn gender;
@@ -436,9 +468,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn address;
         private System.Windows.Forms.DataGridViewTextBoxColumn qualfication;
         private System.Windows.Forms.DataGridViewTextBoxColumn salary;
-        private System.Windows.Forms.ErrorProvider errorProvider1;
-        private System.Windows.Forms.Button btnUpdate;
-        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.TextBox txtSearchName;
+        private System.Windows.Forms.Button btnSearch;
     }
 }
 
