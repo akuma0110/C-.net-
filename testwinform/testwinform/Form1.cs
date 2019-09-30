@@ -2,19 +2,39 @@
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+using System.Linq;
 
 namespace testwinform
 {
     public partial class Form1 : Form
     {
-        EmployeeDBEntities employeeDBE = new EmployeeDBEntities();
+        EmployeeDBEntities1 employeeDBE = new EmployeeDBEntities1();
 
         public Form1()
         {
             InitializeComponent();
             loadData();
         }
-        
+        void addnew()
+        {
+            Employee ex = new Employee();
+
+
+            if (rdMale.Checked)
+                ex.Gender = "M";
+            else ex.Gender = "F";
+
+            ex.FullName = txtFullName.Text;
+            ex.DateOfBirth = txtDOB.Value;
+            ex.Address = txtAddress.Text;
+            ex.National = txtNational.Text;
+            ex.Phone = txtPhone.Text;
+            ex.Qualification = txtQuantification.Text;
+            ex.Salary = int.Parse(txtSalary.Text);
+            employeeDBE.Employees.Add(ex);
+            employeeDBE.SaveChanges();
+            loadData();
+        }
         void loadData()
         {
             tbldata.Rows.Clear();
@@ -25,6 +45,7 @@ namespace testwinform
 
             }
         }
+
         bool validateInput()
         {
             string name = txtFullName.Text;
@@ -68,7 +89,7 @@ namespace testwinform
                 errorProvider1.Clear();
             return true;
         }
-
+        /*
         void LoadEmployeeInfo()
         {
             //Create an open connection
@@ -98,26 +119,7 @@ namespace testwinform
             dr.Close();
             con.Close();
         }
-        void addnew()
-        {
-            Employee ex = new Employee();
-
-
-            if (rdMale.Checked)
-                 ex.Gender= "M";
-            else ex.Gender = "F";
-
-            ex.FullName = txtFullName.Text;
-            ex.DateOfBirth = txtDOB.Value;
-            ex.Address = txtAddress.Text;
-            ex.National = txtNational.Text;
-            ex.Phone = txtPhone.Text;
-            ex.Qualification = txtQuantification.Text;
-            ex.Salary = int.Parse(txtSalary.Text);
-            employeeDBE.Employees.Add(ex);
-            employeeDBE.SaveChanges();
-            loadData();
-        }
+       
         /*
         void addNewEmployee()
         {
@@ -260,9 +262,13 @@ namespace testwinform
         }
         private void search()
         {
-            //EmployeeDBEntities employeeDBE = new EmployeeDBEntities();
-            // var em = entity.Employees;
-            var tmp = from g in employeeDBE.Employees where g.FullName
+            tbldata.Rows.Clear();
+            string name = txtSearchName.Text;
+            var tmp = (from g in employeeDBE.Employees where g.FullName.Contains(name) select g);
+            foreach(Employee x in tmp)
+            {
+                tbldata.Rows.Add(x.ID, x.FullName, x.DateOfBirth, x.Gender, x.National, x.Phone, x.Address, x.Qualification, x.Salary);
+            }
         }
         private void deleteEmployee()
         {
@@ -314,6 +320,24 @@ namespace testwinform
                                MessageBoxIcon.Question);
             if (rs == DialogResult.Yes)
                 delete();
+        }
+
+        private void BtnSearch_Click(object sender, EventArgs e)
+        {
+            if (txtSearchName.Text.Length == 0 )
+            {
+                errorProvider1.SetError(txtSearchName, "Search must be Null");
+            }
+            else
+            {
+                search();
+            }
+        }
+
+        private void BtnSearchAll_Click(object sender, EventArgs e)
+        {
+            tbldata.Rows.Clear();
+            loadData();
         }
     }
 }

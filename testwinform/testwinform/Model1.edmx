@@ -51,7 +51,7 @@
           <Property Name="Qualification" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="Salary" Type="Int32" />
         </EntityType>
-        <EntityContainer Name="EmployeeDBEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="EmployeeDBEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Employees" EntityType="Self.Employee" />
           <FunctionImport Name="InsertEmployee">
             <Parameter Name="FullName" Mode="In" Type="String" />
@@ -69,7 +69,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="EmployeeDBModelStoreContainer" CdmEntityContainer="EmployeeDBEntities">
+        <EntityContainerMapping StorageEntityContainer="EmployeeDBModelStoreContainer" CdmEntityContainer="EmployeeDBEntities1">
           <EntitySetMapping Name="Employees">
             <EntityTypeMapping TypeName="EmployeeDBModel.Employee">
               <MappingFragment StoreEntitySet="Employees">

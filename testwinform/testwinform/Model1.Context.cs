@@ -15,10 +15,10 @@ namespace testwinform
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class EmployeeDBEntities : DbContext
+    public partial class EmployeeDBEntities1 : DbContext
     {
-        public EmployeeDBEntities()
-            : base("name=EmployeeDBEntities")
+        public EmployeeDBEntities1()
+            : base("name=EmployeeDBEntities1")
         {
         }
     
@@ -65,7 +65,5 @@ namespace testwinform
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("InsertEmployee", fullNameParameter, dOBParameter, genderParameter, nationalParameter, phoneParameter, addressParameter, qualificationParameter, salaryParameter);
         }
-
-        
     }
 }

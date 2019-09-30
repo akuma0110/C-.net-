@@ -52,9 +52,6 @@
             this.txtReset = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tbldata = new System.Windows.Forms.DataGridView();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.btnUpdate = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
             this.txtId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Fullname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dob = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -64,8 +61,12 @@
             this.address = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.qualfication = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.salary = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.btnUpdate = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.txtSearchName = new System.Windows.Forms.TextBox();
+            this.btnSearchAll = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbldata)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
@@ -295,30 +296,6 @@
             this.tbldata.Size = new System.Drawing.Size(910, 270);
             this.tbldata.TabIndex = 22;
             // 
-            // errorProvider1
-            // 
-            this.errorProvider1.ContainerControl = this;
-            // 
-            // btnUpdate
-            // 
-            this.btnUpdate.Location = new System.Drawing.Point(160, 514);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(75, 23);
-            this.btnUpdate.TabIndex = 23;
-            this.btnUpdate.Text = "Update";
-            this.btnUpdate.UseVisualStyleBackColor = true;
-            this.btnUpdate.Click += new System.EventHandler(this.BtnUpdate_Click);
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Location = new System.Drawing.Point(43, 514);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(75, 23);
-            this.btnDelete.TabIndex = 24;
-            this.btnDelete.Text = "Delete";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
-            // 
             // txtId
             // 
             this.txtId.HeaderText = "ID";
@@ -374,14 +351,39 @@
             this.salary.Name = "salary";
             this.salary.ReadOnly = true;
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Location = new System.Drawing.Point(160, 514);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(75, 23);
+            this.btnUpdate.TabIndex = 23;
+            this.btnUpdate.Text = "Update";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.BtnUpdate_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(43, 514);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(75, 23);
+            this.btnDelete.TabIndex = 24;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
+            // 
             // btnSearch
             // 
             this.btnSearch.Location = new System.Drawing.Point(969, 127);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 23);
             this.btnSearch.TabIndex = 25;
-            this.btnSearch.Text = "button1";
+            this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.BtnSearch_Click);
             // 
             // txtSearchName
             // 
@@ -390,9 +392,20 @@
             this.txtSearchName.Size = new System.Drawing.Size(209, 20);
             this.txtSearchName.TabIndex = 26;
             // 
+            // btnSearchAll
+            // 
+            this.btnSearchAll.Location = new System.Drawing.Point(969, 156);
+            this.btnSearchAll.Name = "btnSearchAll";
+            this.btnSearchAll.Size = new System.Drawing.Size(75, 23);
+            this.btnSearchAll.TabIndex = 27;
+            this.btnSearchAll.Text = "SearchAll";
+            this.btnSearchAll.UseVisualStyleBackColor = true;
+            this.btnSearchAll.Click += new System.EventHandler(this.BtnSearchAll_Click);
+            // 
             // Form1
             // 
             this.ClientSize = new System.Drawing.Size(1219, 594);
+            this.Controls.Add(this.btnSearchAll);
             this.Controls.Add(this.txtSearchName);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.btnDelete);
@@ -470,6 +483,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn salary;
         private System.Windows.Forms.TextBox txtSearchName;
         private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.Button btnSearchAll;
     }
 }
 
