@@ -19,7 +19,7 @@ namespace DangMNNSE13067_Lab4
         public Nullable<int> Age { get; set; }
         public string Address { get; set; }
         public Nullable<int> Years_of_Experience { get; set; }
-        public Nullable<int> Phone { get; set; }
+        public string Phone { get; set; }
         public string Email { get; set; }
         public Nullable<System.DateTime> Date_of_Joining { get; set; }
     }

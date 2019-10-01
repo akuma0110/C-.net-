@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.txtID = new System.Windows.Forms.TextBox();
             this.txtName = new System.Windows.Forms.TextBox();
@@ -57,9 +58,12 @@
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtSearch = new System.Windows.Forms.TextBox();
             this.txtPhone = new System.Windows.Forms.MaskedTextBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.btnClear = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.tblData)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -122,9 +126,9 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(10, 138);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(39, 13);
+            this.label4.Size = new System.Drawing.Size(45, 13);
             this.label4.TabIndex = 6;
-            this.label4.Text = "Adress";
+            this.label4.Text = "Address";
             // 
             // txtYOE
             // 
@@ -198,49 +202,60 @@
             this.colEmail,
             this.colDate});
             this.tblData.Location = new System.Drawing.Point(347, 146);
+            this.tblData.MultiSelect = false;
             this.tblData.Name = "tblData";
+            this.tblData.ReadOnly = true;
             this.tblData.Size = new System.Drawing.Size(844, 150);
             this.tblData.TabIndex = 16;
+            this.tblData.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TblData_MouseClick);
             // 
             // colID
             // 
             this.colID.HeaderText = "ID";
             this.colID.Name = "colID";
+            this.colID.ReadOnly = true;
             // 
             // colName
             // 
             this.colName.HeaderText = "Name";
             this.colName.Name = "colName";
+            this.colName.ReadOnly = true;
             // 
             // colAge
             // 
             this.colAge.HeaderText = "Age";
             this.colAge.Name = "colAge";
+            this.colAge.ReadOnly = true;
             // 
             // colAddress
             // 
             this.colAddress.HeaderText = "Address";
             this.colAddress.Name = "colAddress";
+            this.colAddress.ReadOnly = true;
             // 
             // colYOE
             // 
             this.colYOE.HeaderText = "Years of Experience";
             this.colYOE.Name = "colYOE";
+            this.colYOE.ReadOnly = true;
             // 
             // colPhone
             // 
             this.colPhone.HeaderText = "Phone";
             this.colPhone.Name = "colPhone";
+            this.colPhone.ReadOnly = true;
             // 
             // colEmail
             // 
             this.colEmail.HeaderText = "Email";
             this.colEmail.Name = "colEmail";
+            this.colEmail.ReadOnly = true;
             // 
             // colDate
             // 
             this.colDate.HeaderText = "Date";
             this.colDate.Name = "colDate";
+            this.colDate.ReadOnly = true;
             // 
             // btnAdd
             // 
@@ -250,6 +265,7 @@
             this.btnAdd.TabIndex = 17;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
             // 
             // btnUpdate
             // 
@@ -259,15 +275,17 @@
             this.btnUpdate.TabIndex = 18;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.BtnUpdate_Click);
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(25, 381);
+            this.btnDelete.Location = new System.Drawing.Point(225, 343);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
             this.btnDelete.TabIndex = 19;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
             // 
             // btnSearch
             // 
@@ -277,6 +295,7 @@
             this.btnSearch.TabIndex = 21;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.BtnSearch_Click);
             // 
             // label9
             // 
@@ -287,28 +306,43 @@
             this.label9.TabIndex = 22;
             this.label9.Text = "Search :";
             // 
-            // textBox1
+            // txtSearch
             // 
-            this.textBox1.Location = new System.Drawing.Point(399, 101);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(160, 20);
-            this.textBox1.TabIndex = 23;
+            this.txtSearch.Location = new System.Drawing.Point(399, 101);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(160, 20);
+            this.txtSearch.TabIndex = 23;
             // 
             // txtPhone
             // 
             this.txtPhone.Location = new System.Drawing.Point(70, 206);
-            this.txtPhone.Mask = "999.999999";
+            this.txtPhone.Mask = "999999999";
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(230, 20);
             this.txtPhone.TabIndex = 24;
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // btnClear
+            // 
+            this.btnClear.Location = new System.Drawing.Point(316, 343);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(75, 23);
+            this.btnClear.TabIndex = 25;
+            this.btnClear.Text = "Clear";
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.BtnClear_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1230, 450);
+            this.ClientSize = new System.Drawing.Size(1230, 377);
+            this.Controls.Add(this.btnClear);
             this.Controls.Add(this.txtPhone);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.btnDelete);
@@ -333,6 +367,7 @@
             this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.tblData)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -369,8 +404,10 @@
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.MaskedTextBox txtPhone;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.Button btnClear;
     }
 }
 
