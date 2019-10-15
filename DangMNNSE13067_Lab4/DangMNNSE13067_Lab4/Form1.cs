@@ -329,5 +329,10 @@ namespace DangMNNSE13067_Lab4
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void TblData_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

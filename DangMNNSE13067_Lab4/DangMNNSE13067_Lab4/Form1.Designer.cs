@@ -207,6 +207,7 @@
             this.tblData.ReadOnly = true;
             this.tblData.Size = new System.Drawing.Size(844, 150);
             this.tblData.TabIndex = 16;
+            this.tblData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.TblData_CellContentClick);
             this.tblData.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TblData_MouseClick);
             // 
             // colID
