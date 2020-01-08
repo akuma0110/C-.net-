@@ -10,14 +10,7 @@
         <EntityTypeShape EntityType="NorthwindModel.Supplier" Width="1.5" PointX="0.75" PointY="4.875" IsExpanded="true" />
         <AssociationConnector Association="NorthwindModel.FK_Products_Categories" ManuallyRouted="false" />
         <AssociationConnector Association="NorthwindModel.FK_Products_Suppliers" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="NorthwindModel.AspNetRole" Width="1.5" PointX="5.375" PointY="2.5" />
-        <EntityTypeShape EntityType="NorthwindModel.AspNetUserClaim" Width="1.5" PointX="9.875" PointY="1" />
-        <EntityTypeShape EntityType="NorthwindModel.AspNetUserLogin" Width="1.5" PointX="9.875" PointY="3.75" />
-        <EntityTypeShape EntityType="NorthwindModel.AspNetUser" Width="1.5" PointX="7.625" PointY="1.375" />
-        <AssociationConnector Association="NorthwindModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
-        <AssociationConnector Association="NorthwindModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
-        <AssociationConnector Association="NorthwindModel.AspNetUserRoles" />
-      </Diagram>
+        </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>
